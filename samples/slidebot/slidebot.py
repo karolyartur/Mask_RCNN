@@ -99,10 +99,10 @@ class SlideBotConfig(Config):
     TRAIN_ROIS_PER_IMAGE = 128
 
     # Use a small epoch since the data is simple
-    STEPS_PER_EPOCH = 1
+    STEPS_PER_EPOCH = 20
 
     # use small validation steps since the epoch is small
-    VALIDATION_STEPS = 1
+    VALIDATION_STEPS = 4
 
 class SlideBotDataset(utils.Dataset):
     '''
@@ -199,5 +199,5 @@ if __name__ == "__main__":
     # Passing layers="heads" freezes all layers except the head layers
     model.train(dataset_train, dataset_val, 
                 learning_rate=config.LEARNING_RATE, 
-                epochs=1, 
+                epochs=10, 
                 layers='heads')
